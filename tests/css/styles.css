@@ -1,0 +1,43 @@
+.modal-body{max-height:none}
+.spacer{margin-top:10px}
+form{margin:0}
+.sort_form{width:180px;margin:0}
+.table_ {background:#f1f1f1}
+.table_ thead tr {background:#9ab}
+.shadow {box-shadow:0 0 3px 0 #000}
+.helperText {color:red;font-size:13px;}
+textarea{width:70%;height:200px;}
+
+.container, .container-fluid {
+  height: auto;  /* test program */  
+  min-height:100%; /* test program */
+  padding: 0px;  
+}
+
+.modal-header {
+  padding: 0px;
+/*  border-bottom: 1px solid #eee; */
+}
+
+.modal-main {
+  position: relative;
+  min-height: 480px;
+/*  max-height: 500px;  */
+/*  padding: 15px;*/
+  overflow-y: auto;
+}
+  
+.modal-footer {
+/*  position: absolute; */  /* test program */
+/*  bottom: 0px; */   /* test program */	
+  margin-bottom: 0px;	   /* test program */	
+  padding: 0px;
+  text-align: center;
+}
+
+
+@media screen and (max-width: 800px){
+	.form-horizontal .controls {
+	     margin-left: 10px; /* test program */
+	}
+}

@@ -1,0 +1,2 @@
+[19-Dec-2013 15:58:55 UTC] PHP Warning:  mysqli_connect() [<a href='function.mysqli-connect'>function.mysqli-connect</a>]: (HY000/2005): Unknown MySQL server host 'mivanova_tests' (25) in /home/mivanova/public_html/tests/komunalna_hygyena/inc/functions.php on line 9
+[19-Dec-2013 15:59:33 UTC] PHP Warning:  mysqli_connect() [<a href='function.mysqli-connect'>function.mysqli-connect</a>]: (HY000/2005): Unknown MySQL server host 'mivanova_tests' (25) in /home/mivanova/public_html/tests/komunalna_hygyena/inc/functions.php on line 9
