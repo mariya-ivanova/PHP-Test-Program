@@ -6,7 +6,7 @@ function render($data, $name){
 }
 
 mb_internal_encoding('UTF-8');
-$db = mysqli_connect('localhost', 'mivanova_tests', 'hackteam72', 'mivanova_tests');
+$db = mysqli_connect('localhost', 'sample_user', 'sample_password', 'sample_db');
 
 if (!$db) {
     $er[] = 'No database';
