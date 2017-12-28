@@ -2,15 +2,13 @@
 session_start();
 include './inc/functions.php';
 
-	$data = array();
+$data = array();
 
-	$data['title'] = 'Тест по Комунална хигиена';
-	$data['content'] = 'templates/student_data_public.php';
-	$data['header'] = 'templates/header.php';
-	$data['bottom'] = 'templates/bottom_public.php';
-	$data['footer'] = 'templates/footer.php';
-//	render($data, 'templates/layouts/normal_layout.php');
-		
+$data['title'] = 'Тест по Комунална хигиена';
+$data['content'] = 'templates/student_data_public.php';
+$data['header'] = 'templates/header.php';
+$data['bottom'] = 'templates/bottom_public.php';
+$data['footer'] = 'templates/footer.php';		
 
 if ($_POST) {
 
@@ -26,23 +24,20 @@ if ($_POST) {
         $errors[] = 'Моля, въведете валидна група.<br/>Групата трябва да се състои от 1 или 2 цифри.<br/>';
     }	
 	
-	if (count($errors) <= 0) {
+	if (count($errors) > 0) {
+		$data['errors'] = $errors;
+	}	
+	else {	
 		$data['fn']	= $fn;
-		$data['group']	= $group;
-	}
-	
-	if (count($errors) > 0){$data['errors'] = $errors;}
-	
-	else {
-	
+		$data['group']	= $group;		
 		$_SESSION['fn']	= $fn;
 		$_SESSION['group']	= $group;	
 		$_SESSION['data'] = $data;	
-	//	print_r($_SESSION['data']);
 		header('Location:prepare.php');		
 	}	
 
 }	
+
 render($data, 'templates/layouts/normal_layout.php');
 ?>
 

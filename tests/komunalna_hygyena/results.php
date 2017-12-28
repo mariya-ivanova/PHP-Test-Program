@@ -2,24 +2,34 @@
 session_start();
 include './inc/functions.php';
 
-//print_r($_SESSION['post_results']);
 
 $sum_points = array();
 $total_sum = 0;
-if(isset($_SESSION['post_results'])){
+$sum = 0;
+
+if(isset($_SESSION['post_results'])){	
 	foreach ($_SESSION['post_results'] as $key => $value) {
-			
-		foreach($value['answers'] as $k => $v){
-			$query_text = "SELECT `points` FROM `answers_test1` WHERE `id` =$v";
-			$query = mysqli_query($db, $query_text);
-			$sum=0;
-			while ($row = mysqli_fetch_assoc($query)) {
-				$sum += $row['points']; 
+
+		if($value['answers'] != 0) {
+
+			foreach($value['answers'] as $k => $v){
+				$query_text = "SELECT `points` FROM `answers_test1` WHERE `id` =$v";
+				$query = mysqli_query($db, $query_text);
+				$sum = 0;
+				while ($row = mysqli_fetch_assoc($query)) {
+					$sum += $row['points']; 
+				}	
+				$sum_points[$key]['question_id'] = $value['question_id'];
+				$sum_points[$key]['answers'] = $value['answers'];
+				$sum_points[$key]['points'] = $sum;		
 			}	
+		}
+		else {
 			$sum_points[$key]['question_id'] = $value['question_id'];
-			$sum_points[$key]['answers'] = $value['answers'];
-			$sum_points[$key]['points'] = $sum;		
-		}	
+			$sum_points[$key]['answers'] = 0;
+			$sum_points[$key]['points'] = 0;	
+		}
+
 		$total_sum += $sum;
 	}
 }
@@ -28,10 +38,10 @@ if($_SESSION['total_points'] == 0)
 	$correct_answers = 0;
 else
 	$correct_answers = $total_sum/$_SESSION['total_points'];
+
 $percent = max(0, $correct_answers*100); /* the sum of correct answers/total sum of points for all questions */	
 $percent = number_format(round($percent, 2));
 
-//print_r($sum_points);
 $data['points'] = $sum_points; 
 $data['total_sum'] = $total_sum; 
 $data['percent'] = $percent;	

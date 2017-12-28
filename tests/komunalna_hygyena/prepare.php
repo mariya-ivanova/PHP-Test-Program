@@ -7,9 +7,7 @@ $query_text = "SELECT `questions_test1`.id as `qid`, `questions_test1`.name as `
 `answers_test1`.id as `aid`, `answers_test1`.name as `aname`, `answers_test1`.question_id,
 `answers_test1`.points as `points` 
 FROM questions_test1, `answers_test1`
-
 WHERE `answers_test1`.question_id = `questions_test1`.id
-
 ORDER BY `questions_test1`.id ASC 
 ";
 
@@ -26,9 +24,7 @@ while ($row = mysqli_fetch_assoc($query)) {
     $tempdata['questions'][$row['qid']]['answers'][$row['aid']] = $row['aname'];
 }
 
-
 shuffle($tempdata['questions']);	/* mix the questions */
-//print_r($tempdata['questions']);
 
 /* rearrange the questions so the question index corresponds to the number of the current page. The question id remains the same. */
 $i=0; $newdata= array(); 
@@ -37,8 +33,6 @@ while($i < min(count($tempdata['questions']), 10)) {
     $newdata = each($tempdata['questions']); 
 	$data['questions'][$i] = $newdata['value'];
 }
-
-//print_r($data['questions']);
 
 $_SESSION['data'] = $data;
 $_SESSION['total_points'] = $total_points;

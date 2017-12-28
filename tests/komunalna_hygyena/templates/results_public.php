@@ -1,9 +1,7 @@
 <?php
 
-//print_r($_SESSION['post_results']);
 
 echo '<br/><br/>';
-
 
 echo '<table class="table table-striped table_ table-bordered">';
 
