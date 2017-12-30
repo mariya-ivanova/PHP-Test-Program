@@ -19,30 +19,30 @@
 		$action = 'test2.php?p='.$action;
 	}
 
-//print_r($data['questions']);
-
-
-if ($p <= count($data['questions'])+1) {
-	$v = $data['questions'][$p];
-
-	if($_POST && !isset($_POST['start'])){
-		$key = $data['questions'][$p-1]['qid'];
-
-			if(isset($_POST['question'])){
-				$_SESSION['post_results2'][$p-1]['question_id'] = $key;	
-				$_SESSION['post_results2'][$p-1]['answers'] = $_POST['question'];			
-			//	print_r($_SESSION['post_results2']);
-			}
-	}	
 	
+	if ($p <= count($data['questions'])+1) {
+		$v = $data['questions'][$p];
+		
+		if($_POST && !isset($_POST['start'])){
+			$key = $data['questions'][$p-1]['qid'];
+
+				$_SESSION['post_results'][$p-1]['question_id'] = $key;
+
+				if(isset($_POST['question'])){	
+					$_SESSION['post_results'][$p-1]['answers'] = $_POST['question'];			
+				}			
+				else {
+					$_SESSION['post_results'][$p-1]['answers'] = 0;
+				}
+		}	
+
 ?>
+
+<strong><em>Верен отговор носи 1т., грешен отговор носи -1т.</em></strong><br/><br/>
 
 <form class="form-horizontal" method="POST" action="<?php echo $action; ?>">
 
 <?php
-
-
-//foreach ($data['questions'] as $key => $v){
 	
     echo '
 	<div class="control-group">
@@ -61,7 +61,7 @@ if ($p <= count($data['questions'])+1) {
 		echo '</div>';	
 	}
 	echo '</div>';
-//}
+
 }
 
 header( "refresh:90;url=$action" ); 

@@ -30,7 +30,6 @@ while ($row = mysqli_fetch_assoc($query)) {
 }
 
 shuffle($tempdata['questions']);	/* mix the questions */
-//print_r($tempdata['questions']);
 
 /* rearrange the questions so the question index corresponds to the number of the current page. The question id remains the same. */
 $i=0; $newdata = array(); 
@@ -39,8 +38,6 @@ while($i < min(count($tempdata['questions']), 10)) {
     $newdata = each($tempdata['questions']); 
 	$data['questions'][$i] = $newdata['value'];
 }
-
-//print_r($data['questions']);
 
 $_SESSION['data1'] = $data;
 $_SESSION['total_points1'] = $total_points1;
@@ -73,7 +70,6 @@ while ($row = mysqli_fetch_assoc($query)) {
 }
 
 shuffle($tempdata['questions']);	/* mix the questions */
-//print_r($tempdata['questions']);
 
 /* rearrange questions so the question index correspond to the number of the current page. The question id remains the same. */
 $i=0; $newdata = array(); 
@@ -83,10 +79,7 @@ while($i < min(count($tempdata['questions']), 10)) {
 	$data['questions'][$i] = $newdata['value'];
 }
 
-//print_r($data['questions']);
-
 $_SESSION['data2'] = $data;
 $_SESSION['total_points2'] = $total_points2;
 
 header('Location:test1.php');	
-

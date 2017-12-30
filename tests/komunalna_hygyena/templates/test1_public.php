@@ -17,7 +17,6 @@
 		$action = 'test1.php?p='.$action;
 	}
 
-
 	if ($p <= count($data['questions'])+1) {
 		$v = $data['questions'][$p];
 		
@@ -34,6 +33,8 @@
 				}
 		}	
 ?>
+
+<strong><em>Верен отговор носи 1т., грешен отговор носи -1т.</em></strong><br/><br/>
 
 <form class="form-horizontal" method="POST" action="<?php echo $action; ?>">
 

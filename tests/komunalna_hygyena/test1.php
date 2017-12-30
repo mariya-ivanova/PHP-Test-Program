@@ -11,8 +11,3 @@ $data['header'] = 'templates/header.php';
 $data['bottom'] = 'templates/bottom_public.php';
 $data['footer'] = 'templates/footer.php';
 render($data, 'templates/layouts/normal_layout.php');
-
-
-
-
-

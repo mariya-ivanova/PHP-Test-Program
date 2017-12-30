@@ -2,13 +2,13 @@
 session_start();
 include './inc/functions.php';
 
-	$data = array();
+$data = array();
 
-	$data['title'] = 'Тест по Комунална хигиена';
-	$data['content'] = 'templates/student_data_public.php';
-	$data['header'] = 'templates/header.php';
-	$data['bottom'] = 'templates/bottom_public.php';
-	$data['footer'] = 'templates/footer.php';
+$data['title'] = 'Тест по Комунална хигиена';
+$data['content'] = 'templates/student_data_public.php';
+$data['header'] = 'templates/header.php';
+$data['bottom'] = 'templates/bottom_public.php';
+$data['footer'] = 'templates/footer.php';
 
 if ($_POST) {
 
@@ -31,12 +31,10 @@ if ($_POST) {
 	
 	if (count($errors) > 0){$data['errors'] = $errors;}
 	
-	else {
-	
+	else {	
 		$_SESSION['fn']	= $fn;
 		$_SESSION['group']	= $group;	
 		$_SESSION['data'] = $data;	
-	//	print_r($_SESSION['data']);
 		header('Location:prepare.php');		
 	}	
 
